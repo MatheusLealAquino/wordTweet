@@ -4,11 +4,18 @@ import * as Service from './services.ts'
 async function getTweets(
     { request, response, params } : { request: any, response: any, params: { username: string } }
 ) {
-    console.log(request);
-    const word = await Service.analyzeTweets({ username: params.username});
+    try {
+        const analyze = await Service.analyzeTweets({ username: params.username });
 
-    response.body = { word };
-    response.status = 200;
+        response.body = analyze;
+        response.status = 200;
+    } catch (err) {
+        console.error(err);
+        response.body = {
+            error: true
+        };
+        response.status = 500;
+    }
 }
 
 export { getTweets }

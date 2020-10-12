@@ -4,4 +4,4 @@ import { getTweets } from './controller.ts';
 const router = new Router();
 router.get('/word/:username', getTweets);
 
-export default router
+export default router;
