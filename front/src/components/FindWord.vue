@@ -17,8 +17,9 @@ export default {
     methods: {
         async findWord() {
             if (!this.username || this.username.length < 1) {
-                this.emptyUsername = true
+                this.emptyUsername = true;
             } else {
+                this.emptyUsername = false;
                 const response = await getWordByUsername(this.username);
                 this.$emit('found', {
                     word: response.data.word,
