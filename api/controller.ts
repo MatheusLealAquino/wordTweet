@@ -1,7 +1,7 @@
 import 'https://deno.land/x/dotenv/load.ts';
 import * as Service from './services.ts'
 
-async function getTweets(
+async function getWord(
     { request, response, params } : { request: any, response: any, params: { username: string } }
 ) {
     try {
@@ -18,4 +18,4 @@ async function getTweets(
     }
 }
 
-export { getTweets }
+export { getWord }
